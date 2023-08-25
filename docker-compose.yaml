@@ -1,10 +1,9 @@
-version: '3'
+version: "3"
 
 networks:
   whaticket:
 
 services:
-
   backend:
     build:
       context: ./backend
@@ -47,7 +46,7 @@ services:
 
   mysql:
     image: ${MYSQL_ENGINE:-mariadb}:${MYSQL_VERSION:-10.6}
-    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_bin    
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_bin
     volumes:
       - ./.docker/data/:/var/lib/mysql
     environment:
@@ -56,6 +55,21 @@ services:
       - TZ=${TZ:-America/Fortaleza}
     ports:
       - ${MYSQL_PORT:-3306}:3306
+    restart: always
+    networks:
+      - whaticket
+
+  postgres:
+    image: postgres:${POSTGRES_VERSION:-13}
+    volumes:
+      - ./.docker/data/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=${POSTGRES_DATABASE:-whaticket}
+      - POSTGRES_USER=${POSTGRES_USER:-postgres}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-strongpassword}
+      - TZ=${TZ:-America/Fortaleza}
+    ports:
+      - ${POSTGRES_PORT:-5432}:5432
     restart: always
     networks:
       - whaticket
