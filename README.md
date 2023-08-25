@@ -4,7 +4,7 @@
   sudo apt-get install -y libgbm-dev wget unzip fontconfig locales gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils git
 ```
 
-Instalar o pacote  build-essential:
+Instalar o pacote build-essential:
 
 ```bash
 sudo apt-get install build-essential
@@ -23,7 +23,6 @@ node -v
 npm -v
 ```
 
-
 Instale o docker e adicione seu usuário ao grupo do docker:
 
 ```bash
@@ -36,19 +35,19 @@ sudo usermod -aG docker ${USER}
 sudo apt-get install docker-compose
 ```
 
-Instalar o Postgres Docker 
+Instalar o Postgres Docker
 
 ```bash
 docker run -e TZ="America/Sao_Paulo" --name postgresql -e POSTGRES_USER=unkbot -e POSTGRES_PASSWORD=Suasenha -p 5432:5432 -d --restart=always -v /data:/var/lib/postgresql/data -d postgres
 ```
 
-Instalar o Redis Docker 
+Instalar o Redis Docker
 
 ```bash
 docker run -e TZ="America/Sao_Paulo" --name redis-unkbot -p 6379:6379 -d --restart=always redis:latest redis-server --appendonly yes --requirepass "suaSenha"
 ```
 
- Clonar este repositório:
+Clonar este repositório:
 
 ```bash
 cd ~
@@ -149,6 +148,7 @@ sudo rm /etc/nginx/sites-enabled/default
 ```
 
 Crie o site para o Backend
+
 ```bash
 sudo nano /etc/nginx/sites-available/unkbot-backend
 ```

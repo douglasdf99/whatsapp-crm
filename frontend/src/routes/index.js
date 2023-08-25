@@ -21,9 +21,6 @@ import Tickets from "../pages/Tickets/";
 import Users from "../pages/Users";
 import Route from "./Route";
 
-
-
-
 const Routes = () => {
   return (
     <BrowserRouter>
@@ -58,11 +55,25 @@ const Routes = () => {
               <Route exact path="/Queues" component={Queues} isPrivate />
               <Route exact path="/tags" component={Tags} isPrivate />
               <Route exact path="/schedules" component={Schedules} isPrivate />
-              <Route exact path="/BulkMessage" component={SendMassMessage} isPrivate />
+              <Route
+                exact
+                path="/BulkMessage"
+                component={SendMassMessage}
+                isPrivate
+              />
 
-              <Route exact path="/ShippingReport" component={ShippingReport} isPrivate />
-              <Route exact path="/SettingsMessage" component={SettingMessage} isPrivate />
-              
+              <Route
+                exact
+                path="/ShippingReport"
+                component={ShippingReport}
+                isPrivate
+              />
+              <Route
+                exact
+                path="/SettingsMessage"
+                component={SettingMessage}
+                isPrivate
+              />
             </LoggedInLayout>
           </WhatsAppsProvider>
         </Switch>
